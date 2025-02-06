@@ -37,7 +37,7 @@ set positional-arguments
 
 # Lint the project with Ruff
 @lint:
-  rye run ruff check -- src tests
+  rye run ruff check --fix -- src tests
 
 # Perform static type checking with mypy
 @typecheck:
