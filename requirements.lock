@@ -6,5 +6,5 @@
 #   features: []
 #   all-features: false
 #   with-sources: false
-
--e file:.
+#   generate-hashes: false
+#   universal: false

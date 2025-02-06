@@ -69,6 +69,8 @@ release: fmt audit lint typecheck bump
 
 alias c := commit
 
+# Run all CI checks
+ci: fmt lint typecheck audit check-bump
 
 # Run all tests
 test:

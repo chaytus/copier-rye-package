@@ -6,11 +6,11 @@
 
 </div>
 
-`copier-rye` is a [Copier](https://copier.readthedocs.io/en/stable/) template ideated to speed up the development process of Python applications. No more configuration hassle and boilerplate!
+`copier-rye-packagee` is a [Copier](https://copier.readthedocs.io/en/stable/) template ideated to speed up the development process of Python applications. No more configuration hassle and boilerplate!
 
 ## ⚡ Features
 
-`copier-rye` offers a production-ready development environment, with many useful features like formatting, linting, pre-commit hooks, and documentation already set up. Here's an overview of the features:
+`copier-rye-package` offers a production-ready development environment, with many useful features like formatting, linting, pre-commit hooks, and documentation already set up. Here's an overview of the features:
 
 - [`rye`](https://rye-up.com) is a comprehensive project and package management solution for Python.
 - [`just`](https://github.com/casey/just/) is a modern rewrite of `make` in Rust 🦀
@@ -27,7 +27,7 @@
 >
 > - The template adopts to the `src` layout.
 > - `mypy` is configured with a strict ruleset. The recommended approach to loosen those constraints is by temporary per-module ignores.
-> - `google` is the docstring style of choice.
+> - `numpy` is the docstring style of choice.
 > - `ruff` is used to format the code using `black` style, while imports are sorted with `isort` style.
 > - Releases follow [Semantic Versioning](https://semver.org/).
 > - Commit follow the [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) specification.
@@ -77,7 +77,7 @@ If you want to create a new package, or any coding project, you just have to run
 1. Initialise the template:
 
 ```bash
-copier copy --trust gh:montanarograziano/copier-rye my-project
+copier copy --trust gh:chaytus/copier-rye-package my-project
 ```
 
 
@@ -116,6 +116,7 @@ Or even the shorter `just c`. A prompt will guide you through the commit.
   "author_fullname": "",
   "author_email": "",
   "author_username": "",
+  "author_oraganization": "",
   "repository_provider": "",
   "repository_namespace": "",
   "repository_name": "",
@@ -133,6 +134,7 @@ Or even the shorter `just c`. A prompt will guide you through the commit.
 - `project_description`: the description of the project indicated in `pyproject.toml`.
 - `author_fullname`: the author full name.
 - `author_email`: the author email address.
+- `author_oraganization`: the author organization.
 - `repository_provider`: the repository provider (e.g., *GitHub*, *GitLab*, *BitBucket*). Only GitHub is supported for now.
 - `repository_namespace`: the repository namespace.
 - `package_name`: the package name.
@@ -153,10 +155,10 @@ PR and issues are always accepted, especially since this project is far from bei
 
 ```bash
 # using github cli
-gh repo clone montanarograziano/copier-rye
+gh repo clone chaytus/copier-rye-package
 
 # using git (SSH recommended)
-git clone git@github.com:montanarograziano/copier-rye
+git clone git@github.com:chaytus/copier-rye-packagee
 ```
 
 3. Install the dependencies:

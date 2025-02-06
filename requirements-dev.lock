@@ -6,8 +6,9 @@
 #   features: []
 #   all-features: false
 #   with-sources: false
+#   generate-hashes: false
+#   universal: false
 
--e file:.
 appnope==0.1.4
     # via ipykernel
 argcomplete==3.2.3
@@ -36,6 +37,8 @@ cfgv==3.4.0
 charset-normalizer==3.3.2
     # via commitizen
     # via requests
+ciso8601==2.3.2
+    # via just
 click==8.1.7
     # via black
     # via deptry
@@ -75,6 +78,8 @@ filelock==3.13.1
     # via virtualenv
 ghp-import==2.1.0
     # via mkdocs
+glob2==0.7
+    # via just
 griffe==0.42.1
     # via mkdocstrings-python
 html5lib==1.1
@@ -103,8 +108,11 @@ jupyter-client==8.6.1
 jupyter-core==5.7.2
     # via ipykernel
     # via jupyter-client
+just==0.8.162
 license-expression==30.3.0
     # via cyclonedx-python-lib
+lxml==5.3.0
+    # via just
 markdown==3.5.2
     # via mkdocs
     # via mkdocs-autorefs
@@ -152,6 +160,8 @@ nest-asyncio==1.6.0
     # via ipykernel
 nodeenv==1.8.0
     # via pre-commit
+orjson==3.10.15
+    # via just
 packageurl-python==0.15.0
     # via cyclonedx-python-lib
 packaging==24.0
@@ -223,6 +233,7 @@ python-dateutil==2.9.0.post0
     # via mkdocs-macros-plugin
 pyyaml==6.0.1
     # via commitizen
+    # via just
     # via mkdocs
     # via mkdocs-macros-plugin
     # via pre-commit
@@ -239,8 +250,12 @@ regex==2023.12.25
     # via mkdocs-material
 requests==2.31.0
     # via cachecontrol
+    # via just
     # via mkdocs-material
     # via pip-audit
+    # via requests-viewer
+requests-viewer==0.0.12
+    # via just
 rich==13.7.1
     # via pip-audit
 ruff==0.3.4

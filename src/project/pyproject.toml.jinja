@@ -1,116 +1,3 @@
-[tool.rye]
-managed = true
-dev-dependencies = [
-    "pytest>=8.1.1",
-    "deptry>=0.14.2",
-    "mypy>=1.9.0",
-    "validate-pyproject>=0.16",
-    "pyproject-fmt>=1.7.0",
-    "pre-commit>=3.6.2",
-    "regex>=2023.12.25",
-    "cffi>=1.16.0",
-    "commitizen>=3.20.0",
-    "pandas>=2.2.1",
-    "numpy>=1.26.4",
-    "mkdocstrings>=0.24.1",
-    "mkdocstrings-python>=1.9.0",
-    "mkdocs-macros-plugin>=1.0.5",
-    "mkdocs-material[imaging]>=9.5.14",
-    "pytest-cov>=4.1.0",
-    "python-dateutil>=2.9.0.post0",
-    "ipykernel>=6.29.3",
-    "loguru>=0.7.2",
-    "ruff>=0.3.4",
-    "pandas-stubs>=2.2.1.240316",
-]
-
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src"]
-
-[tool.ruff]
-src = ["src"]
-target-version = "py{{ ensure_python_version.replace('.', '') }}"
-line-length = 88
-
-select = [
-  # default
-  "E",      # pycodestyle error
-  "F",      # flake8 error
-  # extra
-  "A",      # builtin shadowing
-  "B",      # flake8 bugbear
-  "BLE",    # aboid bare excepts
-  "C4",     # simplify comprehensions
-  "D",      # pydocstyle
-  "DTZ",    # datetime errors
-  "FBT",    # avoid boolean trap
-  "G",      # logging format
-  "I",      # isort imports
-  "N",      # conform to PEP8 naming rules
-  "RET",    # return values
-  "S",      # bandit
-  "TRY",    # exceptions antipatterns
-  "UP",     # upgade syntax
-  "W",      # pycodestyle warning
-  "YTT",    # wrong usage of sys.info
-]
-fix = true
-ignore = ["D107", "E501", "TRY003"]
-
-  [tool.ruff.per-file-ignores]
-  "__init__.py" = ["F401", "I002"]
-
-  [tool.ruff.pydocstyle]
-  convention = "google"
-
-  [tool.ruff.pycodestyle]
-  max-doc-length = 88
-
-  [tool.ruff.isort]
-  required-imports = ["from __future__ import annotations"]
-
-
-[tool.commitizen]
-name = "cz_conventional_commits"
-version = "0.1.0"
-version_files = ["src/{{ python_package_import_name }}/__init__.py:^__version__"]
-annotated_tag = true
-incremental = true
-update_changelog_on_bump = true
-check_consistency = true
-
-  [tool.commitizen.change_type_map]
-  feat = "⚡ Feat"
-  fix = "🐞 Fix"
-  perf = "🚀 Performance"
-  refactor = "🛠  Refactor"
-  docs = "📚 Docs"
-
-[tool.mypy]
-python_version = {{ ensure_python_version }}
-python_executable = ".venv/bin/python"
-show_error_codes = true
-
-check_untyped_defs = true
-disallow_any_unimported = true
-disallow_untyped_defs = true
-no_implicit_optional = true
-warn_return_any = true
-warn_unused_ignores = true
-
-[tool.pytest.ini_options]
-testpaths = "tests"
-pythonpath = "src"
-
-[tool.pyright]
-exclude = [ ".venv" ]
-venvPath = "."
-venv = ".venv"
-
 [project]
 name = "{{ python_package_distribution_name }}"
 description = "{{ project_description }}"
@@ -212,8 +99,79 @@ Changelog = "https://{{ repository_namespace }}.{{ repository_provider.rsplit('.
 Repository = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}"
 Issues = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/issues"
 Discussions = "https://{{ repository_provider }}/{{ repository_namespace }}/{{ repository_name }}/discussions"
-{%- if repository_provider == "github.com" %}
-Funding = "https://{{ repository_provider }}/sponsors/{{ author_username }}"
-{%- endif %}
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "commitizen>=3.20.0",
+    "deptry>=0.14.2",
+    "mike>=2.1.3",
+    "mkdocs>=1.6.1",
+    "mkdocstrings>=0.24.1",
+    "mkdocs-macros-plugin>=1.0.5",
+    "mkdocs-material>=9.5.43",
+    "mkdocs-material[imaging]>=9.5.14",
+    "mypy>=1.9.0",
+    "pip-audit>=2.7.3",
+    "pre-commit>=3.6.2",
+    "pyproject-fmt>=1.7.0",
+    "pyright>=1.1.387",
+    "pytest>=8.1.1",
+    "pytest-cov>=4.1.0",
+    "python-kacl>=0.6.2",
+    "ruff>=0.3.4",
+    "validate-pyproject>=0.16",
+]
 
 
+[build-system]
+build-backend = "hatchling.build"
+
+requires = [ "hatchling" ]
+
+[tool.hatch.build]
+exclude = [
+  "/.*",
+  "tests",
+  "docs",
+]
+
+[tool.hatch.version]
+path = "src/{{ python_package_import_name }}/configs/__init__.py"
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+pythonpath = "src"
+
+[tool.mypy]
+python_version = {{ ensure_python_version }}
+python_executable = ".venv/bin/python"
+show_error_codes = true
+
+check_untyped_defs = true
+disallow_any_unimported = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_ignores = true
+
+[tool.pyright]
+exclude = [ ".venv" ]
+venvPath = "."
+venv = ".venv"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+version_files = ["src/{{ python_package_import_name }}/configs/__init__.py:^version"]
+annotated_tag = true
+incremental = true
+update_changelog_on_bump = true
+check_consistency = true
+
+  [tool.commitizen.change_type_map]
+  feat = "⚡ Feat"
+  fix = "🐞 Fix"
+  perf = "🚀 Performance"
+  refactor = "🛠  Refactor"
+  docs = "📚 Docs"

@@ -17,12 +17,12 @@ _skip_if_exists:
 project_name:
   type: str
   help: Your project name
-  default: "default_project"
+  default: ""
 
 project_description:
   type: str
   help: Your project description
-  default: "Your project description"
+  default: ""
 
 author_fullname:
   type: str
@@ -38,6 +38,11 @@ author_username:
   type: str
   help: Your username (e.g. on GitHub)
   default: your_git_username
+
+author_organization:
+  type: str
+  help: Your organization (e.g. on GitHub)
+  default: "Chaytus Research & Engineering LLC"
 
 repository_provider:
   type: str
@@ -59,7 +64,7 @@ repository_name:
 copyright_license:
   type: str
   help: Your project's license
-  default: GNU General Public License v3.0
+  default: MIT License
   choices:
     - Academic Free License v3.0
     - Apache License 2.0
@@ -100,8 +105,6 @@ ensure_python_version:
   help: "Minimum supported Python version?"
   default: "3.10"
   choices:
-    - "3.8"
-    - "3.9"
     - "3.10"
     - "3.11"
     - "3.12"
