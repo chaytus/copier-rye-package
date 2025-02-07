@@ -1,14 +1,11 @@
 # This workflow will publish a Python package to PyPI when a tag is created
 
-name: CI
+name: Release
 
 on:
   push:
-    branches:
-      - main
-      - master
     tags:
-      - '*'
+      - 'v*'
 
 permissions:
   contents: read

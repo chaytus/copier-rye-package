@@ -40,19 +40,15 @@ dev-dependencies = [
     "validate-pyproject>=0.16",
     "pyproject-fmt>=1.7.0",
     "pre-commit>=3.6.2",
-    "regex>=2023.12.25",
-    "cffi>=1.16.0",
     "commitizen>=3.20.0",
     "mkdocstrings>=0.24.1",
     "mkdocstrings-python>=1.9.0",
     "mkdocs-macros-plugin>=1.0.5",
     "mkdocs-material[imaging]>=9.5.14",
     "pytest-cov>=4.1.0",
-    "ipykernel>=6.29.3",
     "blacken-docs>=1.16.0",
     "ruff>=0.3.4",
     "pip-audit>=2.7.2",
-    "just>=0.8.162",
 ]
 
 [tool.rye.scripts]

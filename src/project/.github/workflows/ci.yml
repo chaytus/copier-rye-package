@@ -32,5 +32,8 @@ jobs:
       - name : Install dependencies
         run: rye sync
 
+      - name: Install mypy types
+        run: rye run mypy --install-types
+
       - name: Run CI tests
         run: just ci
